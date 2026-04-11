@@ -1,21 +1,24 @@
-syntax="proto3";
+syntax = "proto3";
 
-package Payment;
+package payment;
 
-option go_package="github.com/Saltanat4/gen-repo/payment";
+option go_package = "github.com/Saltanat4/gen-repo/payment";
 
-service PaymentService{
-  rpc ProcessPayment (PaymentRequest) returns (PaymentResponse);
+import "google/protobuf/timestamp.proto";
+
+service PaymentService {
+  rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
 }
 
-message PaymentRequest{
-  string order_id=1;
-  int64 amount=2;
+message PaymentRequest {
+  string order_id = 1;
+  int64 amount = 2;
 }
 
-message PaymentResponse{
-  string transaction_id=1;
-  string order_id=2;
-  int64 amount=3;
-  string status=4;
+message PaymentResponse {
+  string transaction_id = 1;
+  string order_id = 2;
+  int64 amount = 3;
+  string status = 4;
+  google.protobuf.Timestamp processed_at = 5;
 }
