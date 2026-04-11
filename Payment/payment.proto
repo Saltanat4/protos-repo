@@ -10,10 +10,12 @@ service PaymentService{
 
 message PaymentRequest{
   string order_id=1;
-  double amount=2;
+  int64 amount=2;
 }
 
 message PaymentResponse{
   string transaction_id=1;
-  string status=2;
+  string order_id=2;
+  int64 amount=3;
+  string status=4;
 }
