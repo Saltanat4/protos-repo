@@ -10,6 +10,19 @@ service PaymentService {
   rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
 }
 
+message ListPaymentsRequest{
+  string status=1;
+}
+
+message ListPaymentsResponse {
+  repeated PaymentResponse payments=1;
+}
+
+service ListPaymentService{
+  rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+  rpc ListPayments(ListPaymentsResponse) returns (ListPaymentsResponse);
+}
+
 message PaymentRequest {
   string order_id = 1;
   int64 amount = 2;
