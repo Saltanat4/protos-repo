@@ -19,3 +19,4 @@ message OrderStatusUpdate {
   string status = 2;
   google.protobuf.Timestamp updated_at = 3;
 }
+
